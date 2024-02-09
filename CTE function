@@ -2,8 +2,6 @@ WITH G1 as (SELECT tb1.mobile_no,tb2.sales_account_type,tb1.connected_date
              FROM tb1,tb2
              WHERE tb1.connected_date >= '2023-02-01'
              AND   tb1.connected_date <='2023-02-28'
-             AND   tb1.disconnected_on IS NULL
-             AND   tb1.connection_type = "POS"
              AND   tb1.debit_led_acc_code=tb2.ledger_acc_code ) ,
 	
 G2  as (select G1.mobile_no ,min(tb1.connected_date)	 as min_date
